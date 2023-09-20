@@ -1,0 +1,18 @@
+version: "3.3"
+services:
+  cas:
+    image: apereo/cas:6.6.12
+    container_name: cas
+    restart: on-failure
+    environment:
+      - TZ=Asia/Taipei
+    network_mode: host    
+    volumes:
+      - $PWD/thekeystore:/etc/cas/thekeystore:z
+  #   docker exec -it   cas  bash    
+  #   keytool -genkey -alias youhoucas -keyalg RSA -validity 3650 -keystore ./thekeystore -keypass changeit -storepass changeit -dname "CN=localhost,OU=TDD,O=TDD55,L=Robert,ST=Robert,C=ZH"
+  #   docker cp cas:/tmp/thekeystore .
+  #  ports:
+  #    - "8080:8080"
+
+
